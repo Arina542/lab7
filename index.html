@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">Арт-галерея<i class="fa fa-quora" aria-hidden="true"></i></div>
+    <div class="logo">Арт-галерея<img src="favicon.ico"></div>
     <nav>
       <ul>
         <li><a href="#">Главная</a></li>
@@ -56,21 +56,51 @@
       </div>
     </section>
   </main>
-    <!-- Слайдер -->
-    <section class="slider">
-      <button class="prev"><i class="fas fa-chevron-left"></i></button>
-      <div class="slides">
-        <div class="slide">
-          <p>Произведение 1</p>
-        </div>
-        <div class="slide">
-          <img src="slider2.jpg" alt="Произведение 2">
-          <p>Произведение 2</p>
-        </div>
+  <!-- Слайдер -->
+  <section class="slider">
+    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+    <div class="slides">
+      <div class="slide">
+        <i class="fa-brands fa-telegram"></i><p>@k_arishaa_</p>
       </div>
-      <button class="next"><i class="fas fa-chevron-right"></i></button>
-    </section>
+      <div class="slide">
+        <i class="fa-regular fa-envelope-open"></i><p><a href="arinakurochka1@gmail.com">arinakurochka1@gmail.com</a></p>
+      </div>
+      <div class="slide">
+        <i class="fa-brands fa-instagram"></i><p>@k_arishaa_</p>
+      </div>
+      <div class="slide">
+        <i class="fa-solid fa-phone"></i><p><a href="tel:+375339030736">+375 (33) 903-07-36</a></p>
+      </div>
+      <!-- Можно добавить больше слайдов -->
+    </div>
+    <button class="next"><i class="fas fa-chevron-right"></i></button>
+  </section>
 
+  <script>
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+      showSlide(currentSlide);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+      showSlide(currentSlide);
+    });
+
+    // Изначально показываем первый слайд
+    showSlide(currentSlide);
+  </script>
 </body>
 </html>
